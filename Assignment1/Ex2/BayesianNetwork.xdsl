@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in trial version of GeNIe, which can be used for evaluation purposes only -->
+<smile version="1.0" id="BayesNetwork" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="BreastCancer">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="HasBreastCancer">
+			<state id="Positive" />
+			<state id="Negative" />
+			<parents>BreastCancer</parents>
+			<probabilities>0.8 0.2 0.096 0.904</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.1.1104.2 EVALUATION" name="BayesNetwork" faultnameformat="nodestate">
+			<node id="BreastCancer">
+				<name>BreastCancer</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>228 125 380 193</position>
+			</node>
+			<node id="HasBreastCancer">
+				<name>HasBreastCancer</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>135 233 248 297</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

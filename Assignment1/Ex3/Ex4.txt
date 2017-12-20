@@ -1,0 +1,13 @@
+install.packages("xlsx")
+install.packages("rJava")
+install.packages("xlsxjars")
+
+library("xlsx")
+
+df <- read.xlsx("C:/Users/Neola/Downloads/loan.xlsx",sheetIndex = 1)
+
+result <- subset(df, Age > 30 & Job_status == "unemploye")
+
+write.xlsx(result, file = "C:/Users/Neola/Downloads/loan.xlsx", 
+           sheetName = "finalResult", 
+           row.names = FALSE, append = TRUE)

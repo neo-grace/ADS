@@ -1,0 +1,512 @@
+J <- as.matrix(1, nrow = 17, ncol = 17)
+View(J)
+mid <- hat(xmatrix)-JM
+mid
+J <- as.matrix(1, nrow = 17, ncol = 17)
+J <- matrix(1, nrow = 17, ncol = 17)
+View(J)
+mid <- H-JM
+JM <- J/17
+mid <- H-JM
+mid1 <- t(ymatrix) * mid
+mid1 <- mid * t(ymatrix)
+mid
+mid <- hat(xmatrix)-JM
+mid1 <- mid * t(ymatrix)
+H <- xmatrix %*% solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix)
+View(H)
+hat(xmatrix)
+xmatrix <- matrix(x)
+View(xmatrix)
+xmatrix <- as.matrix(x)
+View(xmatrix)
+ymatrix <- matrix(chemicalData$Yield)
+View(ymatrix)
+H <- xmatrix %*% solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix)
+J <- matrix(1, nrow = 17, ncol = 17)
+JM <- J/17
+mid <- H-JM
+mid1 <- mid * t(ymatrix)
+mid1 <- mid * matrix(t(ymatrix))
+mid1 <- mid * as.matrix(t(ymatrix))
+y <- t(ymatrix)
+mid1 <- y %*% mid
+SSR <- mid1 %*% ymatrix
+mid <- H-JM
+ytrans <- t(ymatrix)
+temp <- ytrans %*% mid
+SSR <- temp %*% ymatrix
+View(SSR)
+MSR <- SSR/2
+SSR <- ytrans %*% mid %*% ymatrix
+SSR <- t(ymatrix) %*% H-JM %*% ymatrix
+SSR <- t(ymatrix) %*% mid %*% ymatrix
+mid <- H-JM
+SSR <- t(ymatrix) %*% mid %*% ymatrix
+mid1 <- 1-H
+I <- diag(17)
+mid1 <- 1-H
+mid1 <- I-H
+SSE <- t(ymatrix) %*% diag(17)-H %*% ymatrix
+SSE <- t(ymatrix) %*% (diag(17)-H) %*% ymatrix
+I <- diag(17)
+SSE <- t(ymatrix) %*% (I-H) %*% ymatrix
+MSE <- SSE/(17-(2+1))
+F0 <- MSR/MSE
+View(F0)
+newdata1 = data.frame(Res_status="owner",Occupation="creative_",Job_status="governmen", Liab_ref = "f", Acc_ref="given")
+contrasts(Res_status)
+contrasts(Occupation)
+newdata1 = data.frame(Res_status="owner",Occupation="creative_",Job_status="governmen", Liab_ref = "f", Acc_ref="given")
+predict(loan.fit,newdata1,type="response")
+newdata2 = data.frame(Res_status="rent",Occupation="creative_",Job_status="governmen", Liab_ref = "f", Acc_ref="given")
+predict(loan.fit,newdata2,type="response")
+library(xlsx)
+chemicalData <- read.xlsx("C:/Users/Neola/Downloads/Chemical Process Data.xlsx",sheetIndex = 1)
+x <- data.frame(1,chemicalData$Factor_1,chemicalData$Factor_2)
+chemicalData.fit <- lm(chemicalData$Yield ~ chemicalData$Factor_1 + chemicalData$Factor_2, data = x)
+summary(chemicalData.fit)
+xmatrix <- as.matrix(x)
+ymatrix <- matrix(chemicalData$Yield)
+#Beta claculation
+b <- solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix) %*% ymatrix
+#rows and columns
+n <- 17
+#Hat Matrix
+H <- xmatrix %*% solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix)
+#SSR calculation
+J <- matrix(1, nrow = 17, ncol = 17)
+JM <- J/17
+mid <- H-JM
+#SSR (Regression Sum of squares)
+SSR <- t(ymatrix) %*% mid %*% ymatrix
+#MSR (Regression Mean Square)
+#Degree of freedom = 2 since two predictors
+dof <- 2
+MSR <- SSR/dof
+#SSE (Error Sum of squares)
+I <- diag(n)
+SSE <- t(ymatrix) %*% (I-H) %*% ymatrix
+#MSE (Error Mean Square)
+MSE <- SSE/(n-(dof+1))
+F0 <- MSR/MSE
+library(xlsx)
+chemicalData <- read.xlsx("C:/Users/Neola/Downloads/Chemical Process Data.xlsx",sheetIndex = 1)
+x <- data.frame(1,chemicalData$Factor_1,chemicalData$Factor_2)
+x
+#Part 1
+chemicalData.fit <- lm(chemicalData$Yield ~ chemicalData$Factor_1 + chemicalData$Factor_2, data = x)
+summary(chemicalData.fit)
+View(mid)
+xmatrix <- as.matrix(x)
+xmatrix
+View(MSE)
+ymatrix <- matrix(chemicalData$Yield)
+ymatrix
+#Beta claculation
+b <- solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix) %*% ymatrix
+b
+#rows and columns
+n <- 17
+#Hat Matrix
+H <- xmatrix %*% solve(t(xmatrix) %*% xmatrix) %*% t(xmatrix)
+H
+#SSR calculation
+J <- matrix(1, nrow = 17, ncol = 17)
+JM <- J/17
+mid <- H-JM
+#SSR (Regression Sum of squares)
+SSR <- t(ymatrix) %*% mid %*% ymatrix
+SSR
+#MSR (Regression Mean Square)
+#Degree of freedom = 2 since two predictors
+dof <- 2
+MSR <- SSR/dof
+MSR
+#SSE (Error Sum of squares)
+I <- diag(n)
+SSE <- t(ymatrix) %*% (I-H) %*% ymatrix
+SSE
+#MSE (Error Mean Square)
+MSE <- SSE/(n-(dof+1))
+MSE
+F0 <- MSR/MSE
+F0
+install.packages(party)
+install.packages("party")
+library(party)
+library(datasets)
+str(iris)
+iris_ctree <- ctree(Species ~ Sepa1.Length + Sepa1.Width + Petal.Length + Petal.Width, data = iris)
+iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data = iris)
+print(iris_ctree)
+plot(iris_ctree)
+plot(iris_ctree,type="simple")
+install.packages("party")
+library(party)
+library(datasets)
+str(iris)
+iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data = iris)
+print(iris_ctree)
+plot(iris_ctree)
+plot(iris_ctree,type="simple")
+install.packages("party")
+install.packages("party")
+install.packages("party")
+install.packages("party")
+#install.packages("party")
+library(party)
+library(datasets)
+str(iris)
+iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data = iris)
+print(iris_ctree)
+plot(iris_ctree)
+plot(iris_ctree,type="simple")
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+train$Survived
+table(train$Survived)
+prop.table(table(train$Survived))
+test$Survived <- rep(0,418)
+submit <- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
+write.csv(submit, file = "noneSurvived.csv", row.names = FALSE)
+table(train$Sex)
+prop.table(table(train$Sex,train$Survived),1)
+test$Survived[test$Sex == 'female'] <- 1
+summary(train$Age)
+train$Child <- 0
+train$Child[train$Age < 18] <- 1
+aggregate(Survived ~ Child + Sex, data=train, FUN=sum)
+aggregate(Survived ~ Child + Sex, data=train, FUN=length)
+aggregate(Survived ~ Child + Sex, data=train, FUN=function(x){sum(x)/length(x)})
+train$Fare2 <- '30+'
+train$Fare2[train$Fare < 30 & train$Fare >= 20] <- '20-30'
+train$Fare2[train$Fare < 20 & train$Fare >= 10] <- '10-20'
+train$Fare2[train$Fare < 10] <- '<10'
+aggregate(Survived ~ Fare2 + Pclass + Sex, data=train, FUN=function(x) {sum(x)/length(x)})
+test$Survived <- 0
+test$Survived[test$Sex == 'female'] <- 1
+test$Survived[test$Sex == 'female' & test$Pclass == 3 & test$Fare >= 20] <- 0
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+plot(fit)
+text(fit)
+Prediction <- predict(fit, test, type = "class")
+?rpart
+plot(fit)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class", control=rpart.control(minsplit=2, cp=0))
+plot(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+View(test)
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+plot(fit)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class", control=rpart.control(minsplit=2, cp=0))
+plot(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+View(test)
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+fancyRpartPlot(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+View(test)
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class",control=rpart.control(minsplit=2, cp=0))
+fancyRpartPlot(fit)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+View(test)
+library(rpart)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class",control=rpart.control(minsplit=2, cp=0))
+fancyRpartPlot(fit)
+text(fit)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+View(train)
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+View(test)
+train$Survived
+table(train$Survived)
+prop.table(table(train$Survived))
+test$Survived <- rep(0,418)
+submit <- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
+write.csv(submit, file = "noneSurvived.csv", row.names = FALSE)
+table(train$Sex)
+prop.table(table(train$Sex,train$Survived),1)
+test$Survived[test$Sex == 'female'] <- 1
+summary(train$Age)
+train$Child <- 0
+train$Child[train$Age < 18] <- 1
+aggregate(Survived ~ Child + Sex, data=train, FUN=sum)
+aggregate(Survived ~ Child + Sex, data=train, FUN=length)
+aggregate(Survived ~ Child + Sex, data=train, FUN=function(x){sum(x)/length(x)})
+train$Fare2 <- '30+'
+train$Fare2[train$Fare < 30 & train$Fare >= 20] <- '20-30'
+train$Fare2[train$Fare < 20 & train$Fare >= 10] <- '10-20'
+train$Fare2[train$Fare < 10] <- '<10'
+aggregate(Survived ~ Fare2 + Pclass + Sex, data=train, FUN=function(x) {sum(x)/length(x)})
+test$Survived <- 0
+test$Survived[test$Sex == 'female'] <- 1
+test$Survived[test$Sex == 'female' & test$Pclass == 3 & test$Fare >= 20] <- 0
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+plot(fit)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class", control=rpart.control(minsplit=2, cp=0))
+fancyRpartPlot(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic train.csv")
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/Titanic test.csv")
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+plot(fit)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+fancyRpartPlot(fit)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "myfirstdtree.csv", row.names = FALSE)
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(readr)
+energyEff <- read_csv("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.csv")
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(xlsx)
+energyEff <- read.xlsx("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.xlsx",sheetIndex = 1)
+View(energyEff)
+printcp(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(xlsx)
+energyEff <- read.xlsx("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.xlsx",sheetIndex = 1)
+library(rpart)
+fit <- rpart(Y1 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+printcp(fit)
+plotcp(fit)
+summary(fit)
+par(mfrow=c(1,2))
+rsq.rpart(fit)
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ")
+text(fit, use.n=TRUE, all=TRUE, cex=.8)
+post(fit, file = "c:/tree2.ps",
+title = "Regression Tree for Energy Efficiency ")
+post(fit, file = "c:/Neola/ADS/Assignment3/Q2/b/tree2.ps",
+title = "Regression Tree for Energy Efficiency ")
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 2)
+text(fit, use.n=TRUE, all=TRUE, cex=.8)
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(xlsx)
+energyEff <- read.xlsx("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.xlsx",sheetIndex = 1)
+View(energyEff)
+library(rpart)
+fit <- rpart(Y1 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+printcp(fit)
+plotcp(fit)
+summary(fit)
+par(mfrow=c(1,2))
+rsq.rpart(fit)
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 2)
+text(fit, use.n=TRUE, all=TRUE, cex=.8)
+printcp(fit)
+plotcp(fit)
+summary(fit)
+par(mfrow=c(1,2))
+rsq.rpart(fit)
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 10)
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 0.2)
+text(fit, use.n=TRUE, all=TRUE, cex=.8)
+post(fit, file = "c:/Neola/ADS/Assignment3/Q2/b/tree2.ps",
+title = "Regression Tree for Energy Efficiency ")
+fity2 <- rpart(Y2 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+printcp(fity2)
+plotcp(fity2)
+summary(fity2)
+par(mfrow=c(1,2))
+rsq.rpart(fity2)
+plot(fity2, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 0.2)
+text(fity2, use.n=TRUE, all=TRUE, cex=.8)
+post(fity2, file = "c:/Neola/ADS/Assignment3/Q2/b/tree1.ps",
+title = "Regression Tree for Energy Efficiency ")
+setwd("C:/Neola/ADS/Assignment3/Q2/a")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/a/Titanic train.csv")
+View(train)
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/a/Titanic train.csv")
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/a/Titanic test.csv")
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+printcp(fit)
+plotcp(fit)
+plot(fit)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+fancyRpartPlot(fit)
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = "survivedResult.csv", row.names = FALSE)
+fancyRpartPlot(fit,margin = 0.2)
+plot(fit,margin = 0.2)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+fancyRpartPlot(fit)
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction, PClass = test$Pclass,
+Sex = test$Sex, Age = test$Age, SibSp = test$SibSp, Parch = test$Parch, Fare = test$Fare,
+Embarked = test$Embarked)
+printcp(submit)
+submitFit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=submit, method="class")
+submitFit <- rpart(Survived ~ PClass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=submit, method="class")
+printcp(submitFit)
+write.csv(submit, file = "survivedResult.csv", row.names = FALSE)
+ptree<- prune(submitFit,
++ cp= submitFit$cptable[which.min(submitFit$cptable[,"xerror"]),"CP"])
+ptree <- prune(submitFit,
+cp= submitFit$cptable[which.min(submitFit$cptable[,"xerror"]),"CP"])
+fancyRpartPlot(ptree, uniform=TRUE,
++ main="Pruned Classification Tree")
+fancyRpartPlot(ptree, uniform=TRUE,
+main="Pruned Classification Tree")
+plotcp(submitFit)
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(xlsx)
+energyEff <- read.xlsx("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.xlsx",sheetIndex = 1)
+View(energyEff)
+library(rpart)
+fit <- rpart(Y1 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+printcp(fit)
+plotcp(fit)
+summary(fit)
+par(mfrow=c(1,2))
+rsq.rpart(fit)
+plot(fit, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 0.2)
+text(fit, use.n=TRUE, all=TRUE, cex=.8)
+post(fit, file = "c:/Neola/ADS/Assignment3/Q2/b/tree2.ps",
+title = "Regression Tree for Energy Efficiency ")
+fity2 <- rpart(Y2 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+printcp(fity2)
+plotcp(fity2)
+summary(fity2)
+par(mfrow=c(1,2))
+rsq.rpart(fity2)
+plot(fity2, uniform=TRUE,
+main="Regression Tree for Energy Efficiency ",margin = 0.2)
+text(fity2, use.n=TRUE, all=TRUE, cex=.8)
+post(fity2, file = "c:/Neola/ADS/Assignment3/Q2/b/tree1.ps",
+title = "Regression Tree for Energy Efficiency ")
+setwd("C:/Neola/ADS/Assignment3/Q2/a")
+library(readr)
+train <- read_csv("C:/Neola/ADS/Assignment3/Q2/a/Titanic train.csv")
+test <- read_csv("C:/Neola/ADS/Assignment3/Q2/a/Titanic test.csv")
+library(rpart)
+fit <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=train, method="class")
+printcp(fit)
+plot(fit,margin = 0.2)
+text(fit)
+library(rattle)
+library(rpart.plot)
+library(RColorBrewer)
+fancyRpartPlot(fit)
+ptree <- prune(fit,
+cp= fit$cptable[which.min(fit$cptable[,"xerror"]),"CP"])
+fancyRpartPlot(ptree, uniform=TRUE,
+main="Pruned Classification Tree")
+Prediction <- predict(fit, test, type = "class")
+submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction, PClass = test$Pclass,
+Sex = test$Sex, Age = test$Age, SibSp = test$SibSp, Parch = test$Parch, Fare = test$Fare,
+Embarked = test$Embarked)
+submitFit <- rpart(Survived ~ PClass + Sex + Age + SibSp + Parch + Fare + Embarked,
+data=submit, method="class")
+printcp(submitFit)
+plotcp(submitFit)
+write.csv(submit, file = "survivedResult.csv", row.names = FALSE)
+summary(fit)
+setwd("C:/Neola/ADS/Assignment3/Q2/b")
+library(xlsx)
+energyEff <- read.xlsx("C:/Neola/ADS/Assignment3/Q2/b/Energy Efficiency ENB2012_data.xlsx",sheetIndex = 1)
+library(rpart)
+fit <- rpart(Y1 ~ X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8,
+data=energyEff, method="anova")
+summary(fit)
